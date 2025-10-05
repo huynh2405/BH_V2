@@ -8,15 +8,14 @@ define('DB_COLLATE', '');
 $table_prefix = 'wp_';
 define('WP_DEBUG', false);
 
-define('WP_HOME', 'https://bh-demo-production-e231.up.railway.app');
-define('WP_SITEURL', 'https://bh-demo-production-e231.up.railway.app');
-
-// Nếu server chạy sau proxy (Railway), bắt buộc bật HTTPS thủ công
-if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
     $_SERVER['HTTPS'] = 'on';
 }
 
 if (!defined('ABSPATH')) {
   define('ABSPATH', __DIR__ . '/');
 }
+
+define('WP_HOME', 'https://bh-demo-production-e231.up.railway.app');
+define('WP_SITEURL', 'https://bh-demo-production-e231.up.railway.app');
 require_once ABSPATH . 'wp-settings.php';
